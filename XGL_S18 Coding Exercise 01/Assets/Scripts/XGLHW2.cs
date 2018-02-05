@@ -136,9 +136,9 @@ public class XGLHW2 : MonoBehaviour {
 			beforeString = "";
 		}
 
-		var afterString = input.Substring (index + 1, input.Length);
+		var afterString = input.Substring (index + 1, input.Length - (index+1));
 
-		return beforeString + centerString + afterString;
+		return afterString + centerString + beforeString;
 	}
 
 
