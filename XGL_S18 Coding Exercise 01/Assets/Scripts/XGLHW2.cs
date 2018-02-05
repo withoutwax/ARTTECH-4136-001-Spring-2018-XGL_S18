@@ -18,7 +18,12 @@ public class XGLHW2 : MonoBehaviour {
 	// "not cool" -> false
 	// "COOL" -> false
 	static public bool _01_isItCool(string input) {
-		return false;
+
+		if (input == "cool") {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	// Given two strings, a and b, 
@@ -32,7 +37,15 @@ public class XGLHW2 : MonoBehaviour {
 	// apple,banana,2 -> "bananaapple"
 	// apple,banana,3 -> "invalid pattern"
 	static public string _02_stitcher(string a, string b, int patternID) {
-		return "invalid pattern";
+
+		if (patternID == 1) {
+			return a + b;
+		} else if (patternID == 2) {
+			return b + a;
+		} else {
+			return "invalid pattern";
+		}
+
 	}
 
 
@@ -41,7 +54,9 @@ public class XGLHW2 : MonoBehaviour {
 	 horse -> hhorseh
 	 banana -> bbananab */
 	static public string _03_front1(string input) {
-		return "";
+		var firstString = input [0];
+
+		return firstString + input;
 	}
 
 	/* Return true if the input string starts with the letter 'a' or 'A'.
@@ -53,7 +68,12 @@ public class XGLHW2 : MonoBehaviour {
 	 "Arkansas" -> true
 	 "banana" -> false */
 	static public bool _04_startsWithA(string input) {
-		return false;
+
+		if (input [0] == "a" || input [0] == "A") {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 
@@ -66,7 +86,14 @@ public class XGLHW2 : MonoBehaviour {
 	("x") → "not x"
 	("not bad") → "not bad" */
 	static public string _05_notString(string input) {	
-		return "";
+
+		if (input.IndexOf ("not") < 0) {
+			return "not" + input;
+		} else if (input.IndexOf ("not") > 0) {
+			return input;
+		} else {
+			return "";
+		}
 	}
 
 
@@ -82,7 +109,12 @@ public class XGLHW2 : MonoBehaviour {
 	// horse, 3, 1 -> "ors"
 	// 
 	static public string _06_redundantSubstring(string input, int length, int startIndex) {
-		return "";
+
+		if (input.Length >= length) {
+			return input.Substring (startIndex, length);
+		} else {
+			return "";
+		}
 	}
 
 	// Return the string, but with the parts before and after a certain character flipped.
@@ -92,7 +124,12 @@ public class XGLHW2 : MonoBehaviour {
 	// "boy",1 -> "y"+"o"+"b" (or "yob")
 	// "boy",2 -> ""+"y"+"bo" (or "ybo")
 	static public string _07_trickyString(string input, int index) {
-		return "";
+
+		var centerString = input[index];
+		var beforeString = input.Substring (0, index);
+		var afterString = input.Substring (index, index);
+
+		return beforeString + centerString + afterString;
 	}
 
 
