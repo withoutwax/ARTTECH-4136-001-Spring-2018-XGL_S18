@@ -56,7 +56,7 @@ public class XGLHW2 : MonoBehaviour {
 	static public string _03_front1(string input) {
 		var firstString = input [0];
 
-		return firstString + input;
+		return firstString + input + firstString;
 	}
 
 	/* Return true if the input string starts with the letter 'a' or 'A'.
@@ -69,7 +69,9 @@ public class XGLHW2 : MonoBehaviour {
 	 "banana" -> false */
 	static public bool _04_startsWithA(string input) {
 
-		if (input [0] == "a" || input [0] == "A") {
+		var singleChar = input [0].ToString ();
+
+		if (singleChar == "a" || singleChar == "A") {
 			return true;
 		} else {
 			return false;
@@ -87,10 +89,12 @@ public class XGLHW2 : MonoBehaviour {
 	("not bad") → "not bad" */
 	static public string _05_notString(string input) {	
 
-		if (input.IndexOf ("not") < 0) {
-			return "not" + input;
-		} else if (input.IndexOf ("not") > 0) {
-			return input;
+		var inputString = input.ToString ();
+
+		if (inputString.IndexOf ("not") < 0) {
+			return "not" + inputString;
+		} else if (inputString.IndexOf ("not") >= 0) {
+			return inputString;
 		} else {
 			return "";
 		}
@@ -127,7 +131,12 @@ public class XGLHW2 : MonoBehaviour {
 
 		var centerString = input[index];
 		var beforeString = input.Substring (0, index);
-		var afterString = input.Substring (index, index);
+
+		if (index == 0) {
+			beforeString = "";
+		}
+
+		var afterString = input.Substring (index + 1, input.Length);
 
 		return beforeString + centerString + afterString;
 	}
