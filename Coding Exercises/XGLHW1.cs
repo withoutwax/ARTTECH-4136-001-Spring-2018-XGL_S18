@@ -26,20 +26,26 @@ public class XGLHW1 : MonoBehaviour {
 
 	// Return the sum of two numbers, a and b.
 	static public int _01_simplest_sum(int a, int b) {
-		return -1;
+		return a + b;
 	}
 
 	// Return the sum of b, and twice c.
 	// (2,3) -> 8
 	// (1,1) -> 3
 	static public int _02_simpler_sum(int b, int c) {
-		return -1;
+		return b + (c * 2);
 	}
 
 	// If it's a hot day, return 'true'. Otherwise, return 'false'.
 	// A hot day is when temperature > 80.
 	static public bool _03_hotDay(int temperature) {
-		return false;	
+
+		if (temperature > 80) {
+			return true;
+		} else if (temperature < 80) {
+			return false;
+		}
+			
 	}
 
 	// If d is greater than or equal to e, return twice the sum of d and e.
@@ -49,7 +55,11 @@ public class XGLHW1 : MonoBehaviour {
 	// (3,1) -> 8
 	// (1,5) -> 6
 	static public int _04_simpleSum(int d, int e) {
-		return -1;
+		if (d >= e) {
+			return 2 * (d + e);
+		} else {
+			return d + e;
+		}
 	}
 
 	// If doubleIt is true, return twice the sum of f and g.
@@ -57,7 +67,13 @@ public class XGLHW1 : MonoBehaviour {
 	// (true,1,2) -> 6
 	// (false,1,2) -> 3
 	static public int _05_kindaSimpleSum(bool doubleIt, int f, int g) {
-		return -1;
+			
+		if (doubleIt) {
+			return 2 * (f + g);
+		} else {
+			return f + g;
+		}
+
 	}
 
 	// Return the absolute value of a.
