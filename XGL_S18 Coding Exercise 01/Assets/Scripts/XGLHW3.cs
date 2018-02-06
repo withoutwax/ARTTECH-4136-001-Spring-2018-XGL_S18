@@ -24,7 +24,7 @@ public class XGLHW3 : MonoBehaviour {
 	static public int loop_1_add_four(int input) {
 
 		int output = input;
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 4; i++) {
 			output++;
 		}
 		return output;
@@ -43,7 +43,10 @@ public class XGLHW3 : MonoBehaviour {
 	// 1,4,5 -> [1,4,5]
 	// 0,0,1 -> [0,0,1]
 	static public int[] array_creation(int a, int b, int c) {
-		return new int[1];
+
+		int[] arrayTime = new int[]{ a, b, c };
+
+		return arrayTime;
 	}
 
 
@@ -57,7 +60,7 @@ public class XGLHW3 : MonoBehaviour {
 	// [3,4,5] -> 3
 	// [4,1,4,2,2,2,2,2,2,3,4,1,1,4,1,4,1,1] -> 4
 	static public int array_getTheFirstElement(int[] a) {
-		return -1;
+		return a[0];
 	}
 
 	// return the i-th element of the array!
@@ -68,7 +71,7 @@ public class XGLHW3 : MonoBehaviour {
 	// [3,4,5],0 -> 3
 	// [4,1,4,2,2,2,2,2,2,3,4,1,1,4,1,4,1,1],2 -> 4
 	static public int array_getTheIthElement(int[] a, int i) {
-		return -1;
+		return a[i];
 	}
 
 	// Return a single string made up of the concatenation of the first "num" strings in input. You'll need to make a loop!
@@ -79,7 +82,14 @@ public class XGLHW3 : MonoBehaviour {
 	// ["a","b","c"],3 -> "abc"
 	// ["a","b","c"],1 -> "a"
 	static public string loop_bigString(string[] input, int num) {
-		return "";
+
+		string concat = "";
+
+		for (var i = 0; i < num; i++) {
+			concat += input [i];
+		}
+
+		return concat;
 	}
 
 	// Use .Length to return the length of the input array. 
@@ -87,7 +97,7 @@ public class XGLHW3 : MonoBehaviour {
 	// [0] -> 1
 	// [4,3,5,1,2] -> 5
 	static public int array_length(int[] input ){ 
-		return -1;
+		return input.Length;
 	}
 
 	// return the sum of every element in the array.
@@ -97,7 +107,14 @@ public class XGLHW3 : MonoBehaviour {
 	// [3] -> 3
 	// [5,4,3,2,1] -> 15
 	static public int array_sum(int[] input) {
-		return -1;
+
+		int sum = 0;
+
+		for (var i = 0; i < input.Length; i++) {
+			sum += input [i];
+		}
+
+		return sum;
 	}
 
 
@@ -114,7 +131,18 @@ public class XGLHW3 : MonoBehaviour {
 	// [3] -> 3
 	// [5,4,3,2,1] -> 9
 	static public int array_EvenSum(int[] input) {
-		return -1;
+
+		int sum = 0;
+
+		for (var i = 0; i < input.Length; i++) {
+
+			if (i % 2 != 1) {
+				sum += input [i];
+			}
+
+		}
+			
+		return sum;
 	}
 
 
@@ -122,6 +150,11 @@ public class XGLHW3 : MonoBehaviour {
 	// [1,2] -> [1,1]
 	// [2,0,1] -> [2,2,1]
 	static public int[] array_3_changer(int[] input) {
+
+		int firstElement = input [0];
+
+		input [1] = firstElement;
+
 		return input;
 	}
 
@@ -130,6 +163,14 @@ public class XGLHW3 : MonoBehaviour {
 	// [1,2],0,1 -> [1,2]
 	// [2,0,1],0,2 -> [1,0,1]
 	static public int[] array_4_changer2(int[] input, int a, int b) {
+
+		if (input[a] > input[b]) {
+			int athElement = input [b];
+
+			input [a] = athElement;
+
+
+		}
 		return input;
 	}
 
@@ -144,7 +185,12 @@ public class XGLHW3 : MonoBehaviour {
 	// Vector3 w/ components {1,2,3},false -> 2
 	// Vector3 w/ components {1,2,3},true -> 1
 	static public float vector_getComponent(Vector3 v, bool getX) {
-		return -1;
+
+		if (getX) {
+			return v.x;
+		}
+
+		return v.y;
 	}
 
 	// Is the position vector of this transform's x property greater than zero?
@@ -154,7 +200,13 @@ public class XGLHW3 : MonoBehaviour {
 	// transform with position {4,3,-1} -> true
 	// transform with position {-2,3,1} -> false
 	static public bool vector_isXPositive(Transform transform) {
-		return false;	
+
+		if (transform.position.x > 0) {
+			return true;
+		} else {
+			return false;
+		}
+			
 	}
 
 	// Given an array of game objects, does at least one of them have an x-position that is > 0?
@@ -163,6 +215,13 @@ public class XGLHW3 : MonoBehaviour {
 	// [GO w/ pos {1,2,3}, GO w/ pos {0,2,3}] -> true
 	// [GO w/ pos {-1,2,3}, GO w/ pos {0,2,3}] -> false
 	static public bool vector_isOnePositive(GameObject[] objects) {
+
+		for (var i = 0; i < objects.Length; i++) {
+			if (objects [i].transform.position.x > 0) {
+				return true;
+			} 
+		}
+			
 		return false;
 	}
 
