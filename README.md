@@ -5,6 +5,8 @@ A homework repository for ARTTECH-4136-001-Spring-2018.
 ### Technology
 **Used:** Unity, C#
 
+---
+
 ### Commiting to GitHub
 
 In order to submit just the codes files into GitHub, select a specific folder which you wish to commit:
